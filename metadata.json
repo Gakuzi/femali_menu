@@ -1,0 +1,5 @@
+{
+  "name": "СЕМЕЙНОЕ МЕНЮ",
+  "description": "An aesthetic, fully autonomous, interactive, and intuitive family meal planning application that integrates the Google Gemini API directly in the browser to generate all data: menus, recipes, shopping lists, budgets, timers, and images.",
+  "requestFramePermissions": []
+}

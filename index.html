@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>СЕМЕЙНОЕ МЕНЮ</title>
+  
+  <!-- PWA and Mobile App Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="СЕМЕЙНОЕ МЕНЮ">
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIHJ4PSIyMjAiIGZpbGw9IiM4QjVFM0MiLz48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTU3MS4yIDMyOC40Yy0xOC4yLTE4LjItNDIuNS0yNC42LTY3LjItMjQuNmMtMjQuNiAwLTQ5IDEwLjQtNjcuMiAyNC42Yy0xOC4yIDE4LjItMjQuNiA0Mi41LTI0LjYgNjcuMmMwIDI0LjYgMTAuNCA0OSAyNC42IDY3LjJjMTguMiAxOC4yIDQyLjUgMjQuNiA2Ny4yIDI0LjZjMjQuNiAwIDQ5LTEwLjQgNjcuMi0yNC42YzE4LjItMTguMiAyNC42LTQyLjUgMjQuNi02Ny4yYzAtMjQuNi0xMC40LTQ5LTI0LjYtNjcuMnpNNTExLjggNTM4LjZoLTMuNmMtMjcuMiAwLTUzLjctMTEuMS03My4yLTMwLjdjLTE5LjUtMTkuNS0zMC43LTQ2LTMwLjctNzMuMmMwLTI3LjIgMTEuMS01My43IDMwLjctNzMuMmMxOS41LTE5LjUgNDYtMzAuNyA3My4yLTMwLjdoMy42YzI3LjIgMCA1My43IDExLjEgNzMuMiAzMC43YzE5LjUgMTkuNSA0NiAzMC43IDczLjIgMzAuN2gxMDRjNi42IDAgMTIgNS40IDEyIDEydi0xMmMwLTE5LjktMTYuMS0zNi0zNi0zNkg1NzEuOGMtMzYgMC03MS4xIDE0LjMtOTguNiA0MS44Yy0yNy41IDI3LjUtNDEuOCA2Mi42LTQxLjggOTguNmMwIDM2IDE0LjMgNzEuMSA0MS44IDk4LjZjMjcuNSAyNy41IDYyLjYgNDEuOCA5OC42IDQxLjhoMTQ2LjRjMTkuOSAwIDM2LTE2LjEgMzYtMzZ2LTEyYzAtNi42LTUuNC0xMi0xMi0xMkg1OTJjLTI3LjIgMC01My43LTExLjEtNzMuMi0zMC43cy0zMC43LTQ2LTMwLjctNzMuMnoiLz48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTMwMCA2NTBjLTguMyAwLTE1LTYuNy0xNS0xNXM2LjctMTUgMTUtMTVzMTUgNi43IDE1IDE1cy02LjcgMTUtMTUgMTV6TTM1MCA3MDAjLTMgMC01LjctMi42LTUuNy01LjdjMC0zLjIgMi42LTUuOCA1LjctNS44czUuOCA heftyIconV2VjdG9yIDIuNiA1LjggNS44YzAgMy4xLTIuNiA1LjctNS44IDUuN3pNNTA0IDgxM2gtMjEuMmMtNi4xIDAtMTEuMS01LTExLjEtMTEuMXM1LTExLjEgMTEuMS0xMS4xaDIxLjJjNi4xIDAgMTEuMSA1IDExLjEgMTEuMXMtcCAxMS4xLTExLjEgMTEuMXoiLz48L3N2Zz4=">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #F9F7F4;
+    }
+    .font-nunito { font-family: 'Nunito', sans-serif; }
+    .font-lato { font-family: 'Lato', sans-serif; }
+    .fade-in {
+      animation: fadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+    .fade-out {
+      animation: fadeOut 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(0.95); }
+    }
+    .texture-paper {
+      background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%239C92AC" fill-opacity="0.02"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
