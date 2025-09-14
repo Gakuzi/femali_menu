@@ -2,57 +2,392 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
   <title>СЕМЕЙНОЕ МЕНЮ</title>
   
-  <!-- PWA and Mobile App Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="СЕМЕЙНОЕ МЕНЮ">
-  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIHJ4PSIyMjAiIGZpbGw9IiM4QjVFM0MiLz48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTU3MS4yIDMyOC40Yy0xOC4yLTE4LjItNDIuNS0yNC42LTY3LjItMjQuNmMtMjQuNiAwLTQ5IDEwLjQtNjcuMiAyNC42Yy0xOC4yIDE4LjItMjQuNiA0Mi41LTI0LjYgNjcuMmMwIDI0LjYgMTAuNCA0OSAyNC42IDY3LjJjMTguMiAxOC4yIDQyLjUgMjQuNiA2Ny4yIDI0LjZjMjQuNiAwIDQ5LTEwLjQgNjcuMi0yNC42YzE4LjItMTguMiAyNC42LTQyLjUgMjQuNi02Ny4yYzAtMjQuNi0xMC40LTQ5LTI0LjYtNjcuMnpNNTExLjggNTM4LjZoLTMuNmMtMjcuMiAwLTUzLjctMTEuMS03My4yLTMwLjdjLTE5LjUtMTkuNS0zMC43LTQ2LTMwLjctNzMuMmMwLTI3LjIgMTEuMS01My43IDMwLjctNzMuMmMxOS41LTE5LjUgNDYtMzAuNyA3My4yLTMwLjdoMy42YzI3LjIgMCA1My43IDExLjEgNzMuMiAzMC43YzE5LjUgMTkuNSA0NiAzMC43IDczLjIgMzAuN2gxMDRjNi42IDAgMTIgNS40IDEyIDEydi0xMmMwLTE5LjktMTYuMS0zNi0zNi0zNkg1NzEuOGMtMzYgMC03MS4xIDE0LjMtOTguNiA0MS44Yy0yNy41IDI3LjUtNDEuOCA2Mi42LTQxLjggOTguNmMwIDM2IDE0LjMgNzEuMSA0MS44IDk4LjZjMjcuNSAyNy41IDYyLjYgNDEuOCA5OC42IDQxLjhoMTQ2LjRjMTkuOSAwIDM2LTE2LjEgMzYtMzZ2LTEyYzAtNi42LTUuNC0xMi0xMi0xMkg1OTJjLTI3LjIgMC01My43LTExLjEtNzMuMi0zMC43cy0zMC43LTQ2LTMwLjctNzMuMnoiLz48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTMwMCA2NTBjLTguMyAwLTE1LTYuNy0xNS0xNXM2LjctMTUgMTUtMTVzMTUgNi43IDE1IDE1cy02LjcgMTUtMTUgMTV6TTM1MCA3MDAjLTMgMC01LjctMi42LTUuNy01LjdjMC0zLjIgMi42LTUuOCA1LjctNS44czUuOCA heftyIconV2VjdG9yIDIuNiA1LjggNS44YzAgMy4xLTIuNiA1LjctNS44IDUuN3pNNTA0IDgxM2gtMjEuMmMtNi4xIDAtMTEuMS01LTExLjEtMTEuMXM1LTExLjEgMTEuMS0xMS4xaDIxLjJjNi4xIDAgMTEuMSA1IDExLjEgMTEuMXMtcCAxMS4xLTExLjEgMTEuMXoiLz48L3N2Zz4=">
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIHJ4PSIyMjAiIGZpbGw9IiM4QjVFM0MiLz48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTU3MS4yIDMyOC40Yy0xOC4yLTE4LjItNDIuNS0yNC42LTY3LjItMjQuNmMtMjQuNiAwLTQ5IDEwLjQtNjcuMiAyNC42Yy0xOC4yIDE4LjItMjQuNiA0Mi41LTI0LjYgNjcuMmMwIDI0LjYgMTAuNCA0OSAyNC42IDY3LjJjMTguMiAxOC4yIDQyLjUgMjQuNiA2Ny4yIDI0LjZjMjQuNiAwIDQ5LTEwLjQgNjcuMi0yNC42YzE4LjItMTguMiAyNC42LTQyLjUgMjQuNi02Ny4yYzAtMjQuNi0xMC40LTQ5LTI0LjYtNjcuMnpNNTExLjggNTM4LjZoLTMuNmMtMjcuMiAwLTUzLjctMTEuMS03My4yLTMwLjdjLTE5LjUtMTkuNS0zMC43LTQ2LTMwLjctNzMuMmMwLTI3LjIgMTEuMS01My43IDMwLjctNzMuMmMxOS41LTE5LjUgNDYtMzAuNyA3My4yLTMwLjdoMy42YzI3LjIgMCA1M3cgMTEuMSA3My4yIDMwLjdzMzAuNyA0NiAzMC43IDczLjJINTkyYzI3LjIgMCA1My43LTExLjEgNzMuMi0zMC43IDE5LjUtMTkuNSA0Ni0zMC43IDczLjItMzAuN2gxMDRjNi42IDAgMTIgNS40IDEyIDEydi0xMmMwLTE5LjktMTYuMS0zNi0zNi0zNkg1NzEuOGMtMzYgMC03MS4xIDE0LjMtOTguNiA0MS44cy00MS44IDYyLjYtNDEuOCA5OC42IDE0LjMgNzEuMSA0MS44IDk4LjYgNjIuNiA0MS44IDk4LjYgNDEuOGgxNDYuNGMxOS45IDAgMzYtMTYuMSAzNi0zNnYtMTJjMC02LjYtNS40LTEyLTEyLTEyaC0xMDRjLTI3LjIgMC01My43LTExLjEtNzMuMi0zMC43eiIvPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMzAwIDY1MFMxNS4xIDY1MCAxNSAxNXMtNi43LTE1IDE1LTE1IDE1IDYuNyAxNSAxNXptNTAgNTBjLTMgMC01LjctMi42LTUuNy01LjdTMzQ3IDY5NCAzNTAgNjk0czUuOCAyLjYgNS44IDUuNy0yLjUgNS47LTUuOCA1Ljd6bTE1NCAxMTNoLTIxLjJjLTYuMSAwLTExLjEtNS0xMS4xLTExLjEgMC02LjEgNS0xMS4xIDExLjEtMTEuMWgyMS4yYzYuMSAwIDExLjEgNSAxMS4xIDExLjEgMCA2LjEtNSAxMS4xLTExLjEgMTEuMXoiLz48L3N2Zz4=">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  
   <style>
-    body {
-      font-family: 'Lato', sans-serif;
-      background-color: #F9F7F4;
+    /* Reset and Base Styles */
+    :root {
+      --bg-main: #F9F7F4; --bg-card: #FFFFFF; --text-main: #333; --text-title: #8B5E3C;
+      --accent-primary: #8B5E3C; --accent-secondary: #D4A373; --accent-success: #5E7A6E; --accent-warn: #E07A5F;
+    }
+    *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body {
+      margin: 0; padding: 0; font-family: 'Lato', sans-serif; background-color: var(--bg-main);
+      color: var(--text-main); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     }
     .font-nunito { font-family: 'Nunito', sans-serif; }
-    .font-lato { font-family: 'Lato', sans-serif; }
-    .fade-in {
-      animation: fadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    .hidden { display: none !important; }
+
+    /* Layout */
+    .container { max-width: 500px; margin: 0 auto; padding: 1rem 1rem 6rem 1rem; }
+    .screen { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+    /* Animations */
+    .fade-in { animation: fadeIn 0.5s ease-in-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+    @keyframes shake { 10%, 90% { transform: translate3d(-1px, 0, 0); } 20%, 80% { transform: translate3d(2px, 0, 0); } 30%, 50%, 70% { transform: translate3d(-4px, 0, 0); } 40%, 60% { transform: translate3d(4px, 0, 0); } }
+
+    /* Common Components */
+    .btn {
+      display: block; width: 100%; height: 56px; border: none; border-radius: 16px; font-family: 'Nunito', sans-serif; font-weight: 700;
+      font-size: 18px; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+      background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+      box-shadow: 0 6px 16px rgba(139, 94, 60, 0.2);
     }
-    .fade-out {
-      animation: fadeOut 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    .btn:active { transform: scale(0.97); }
+    .btn-secondary { background: #fff; color: var(--accent-primary); border: 2px solid var(--accent-secondary); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .btn-small { height: 40px; font-size: 16px; border-radius: 12px; }
+
+    .input-field {
+      width: 100%; height: 56px; padding: 0 20px; border: 2px solid #EAE0D5; border-radius: 16px; font-size: 16px;
+      background-color: var(--bg-card); transition: border-color 0.2s;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    .input-field:focus { border-color: var(--accent-secondary); outline: none; }
+    .card { background-color: var(--bg-card); padding: 1.25rem; border-radius: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
+    
+    /* Specific Styles */
+    #loading-screen .spinner { width: 60px; height: 60px; border: 4px solid var(--accent-secondary); border-top-color: var(--accent-primary); border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    
+    #bottom-nav {
+        position: fixed; bottom: 0; left: 0; right: 0; max-width: 500px; margin: auto;
+        height: 80px; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.05); border-radius: 24px 24px 0 0;
+        display: flex; justify-content: space-around; align-items: center;
     }
-    @keyframes fadeOut {
-      from { opacity: 1; transform: scale(1); }
-      to { opacity: 0; transform: scale(0.95); }
-    }
-    .texture-paper {
-      background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%239C92AC" fill-opacity="0.02"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
-    }
+    #bottom-nav button { background: none; border: none; cursor: pointer; color: #b0a8a0; transition: color 0.2s; }
+    #bottom-nav button.active { color: var(--accent-primary); }
+    #bottom-nav svg { width: 28px; height: 28px; }
+    #bottom-nav span { font-family: 'Nunito'; font-size: 12px; }
+
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center; z-index: 100; padding: 1rem; }
+    .modal-content { background: var(--bg-main); padding: 1.5rem; border-radius: 24px; max-width: 100%; width: 400px; }
   </style>
-<script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react": "https://aistudiocdn.com/react@^19.1.1"
-  }
-}
-</script>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
+
+  <!-- App Container -->
+  <main id="app-container" class="container">
+
+    <!-- Screen: API Key Setup -->
+    <section id="apiKey-screen" class="screen">
+        <div class="text-center w-full">
+            <h1 class="font-nunito text-4xl font-bold text-[color:var(--text-title)] mb-4">СЕМЕЙНОЕ МЕНЮ</h1>
+            <p class="text-lg text-[color:var(--accent-success)] mb-8 font-nunito">Здесь ваша семья встречается с ИИ, чтобы готовить с любовью.</p>
+            <form id="apiKey-form" class="w-full">
+                <input id="apiKey-input" type="password" placeholder="Введите ваш API-ключ Google Gemini" class="input-field text-center">
+                <p id="apiKey-error" class="text-[color:var(--accent-warn)] mt-4 text-sm hidden"></p>
+                <button type="submit" class="btn mt-6">Подключить Gemini</button>
+            </form>
+            <div class="text-xs text-gray-500 mt-4 text-left p-4 bg-white/50 rounded-lg">
+                <p><strong>Как получить ключ?</strong></p>
+                <ol class="list-decimal list-inside">
+                    <li>Перейдите на <a href="https://makersuite.google.com/app/apikey" target="_blank" class="text-[color:var(--accent-primary)] underline">Google AI Studio</a>.</li>
+                    <li>Войдите в свой аккаунт Google.</li>
+                    <li>Нажмите "Create API key in new project".</li>
+                    <li>Скопируйте ключ и вставьте сюда.</li>
+                </ol>
+                <p class="mt-2">⚠️ <strong>Важно:</strong> Если вы в РФ, сервис может быть недоступен. Используйте VPN. Если нужна помощь, пишите в <a href="https://t.me/neuro_men" target="_blank" class="text-[color:var(--accent-primary)] underline">Telegram-канал автора</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screen: Setup Wizard -->
+    <section id="wizard-screen" class="hidden">
+      <!-- Wizard steps will be rendered here by JS -->
+    </section>
+
+    <!-- Screen: Main Content (Menu, Shopping list etc.) -->
+    <section id="main-screen" class="hidden">
+      <!-- Main content will be rendered here -->
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav id="bottom-nav" class="hidden">
+    <!-- Nav buttons will be rendered here -->
+  </nav>
+
+  <!-- Modal Container -->
+  <div id="modal-container"></div>
+  
+  <!-- Loading Spinner -->
+  <div id="loading-overlay" class="modal-overlay hidden">
+    <div class="spinner"></div>
+  </div>
+  
+  <div id="admin-panel-version" style="position: fixed; bottom: 5px; right: 5px; font-size: 8px; color: #ccc; opacity: 0.5;">v2.0.0</div>
+
+  <script type="module">
+    const App = (() => {
+      // --- STATE MANAGEMENT ---
+      let state = {
+        apiKey: null,
+        view: 'apiKey', // apiKey, wizard, main
+        wizardStep: 0,
+        settings: {
+          people: 3,
+          restrictions: [],
+          otherRestrictions: '',
+          protein: 'Курица',
+          period: 7,
+          budget: 10000,
+        },
+        family: [],
+        menu: null,
+        recipes: {},
+        shoppingList: null,
+        budgetData: null,
+        // ... and so on
+      };
+
+      const saveState = () => {
+        try {
+          const stateToSave = { ...state };
+          // Don't save transient state like wizardStep or loading indicators
+          localStorage.setItem('familyMenuState', JSON.stringify(stateToSave));
+        } catch (e) {
+          console.error("Error saving state:", e);
+        }
+      };
+
+      const loadState = () => {
+        try {
+          const saved = localStorage.getItem('familyMenuState');
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            state = { ...state, ...parsed };
+            // After loading, decide where to go
+            if (!state.apiKey) state.view = 'apiKey';
+            else if (!state.menu) state.view = 'main'; // Go to main, main will show generator form
+            else state.view = 'main';
+          }
+        } catch (e) {
+          console.error("Error loading state:", e);
+          localStorage.removeItem('familyMenuState');
+        }
+      };
+      
+      // --- GEMINI API SERVICE ---
+      const Gemini = (() => {
+        const API_BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+        
+        async function makeApiCall(prompt, retries = 3) {
+          if (!state.apiKey) throw new Error("API Key is not set.");
+          
+          for (let i = 0; i < retries; i++) {
+            try {
+              const response = await fetch(`${API_BASE_URL}?key=${state.apiKey}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+              });
+
+              if (!response.ok) {
+                if (response.status === 429 || response.status >= 500) {
+                   throw new Error(`Server error: ${response.status}`);
+                }
+                const errorData = await response.json();
+                throw new Error(errorData.error.message);
+              }
+
+              const data = await response.json();
+              return data.candidates[0].content.parts[0].text;
+            } catch (e) {
+              if (i === retries - 1) throw e;
+              await new Promise(res => setTimeout(res, 1500 * (i + 1)));
+            }
+          }
+        }
+
+        return {
+          verifyKey: async (key) => {
+            try {
+              const tempStateApiKey = state.apiKey;
+              state.apiKey = key;
+              const response = await makeApiCall("Ответь одним словом: OK");
+              state.apiKey = tempStateApiKey; // revert
+              return response.trim().toUpperCase() === 'OK';
+            } catch (e) {
+              return false;
+            }
+          },
+          // ... more API functions for menu, recipes etc.
+        };
+      })();
+
+      // --- UI RENDERING ---
+      const $ = (selector) => document.querySelector(selector);
+      const $$ = (selector) => document.querySelectorAll(selector);
+
+      function render() {
+        // Hide all screens first
+        $$('section').forEach(s => s.classList.add('hidden'));
+
+        if (state.view === 'apiKey') {
+          $('#apiKey-screen').classList.remove('hidden');
+        } else if (state.view === 'wizard') {
+          $('#wizard-screen').classList.remove('hidden');
+          renderWizardStep();
+        } else if (state.view === 'main') {
+          $('#main-screen').classList.remove('hidden');
+          $('#bottom-nav').classList.remove('hidden');
+          // For now, let's just show a welcome message
+          $('#main-screen').innerHTML = `
+            <div class="p-4 pt-10 text-center">
+              <h1 class="font-nunito text-3xl font-bold text-[color:var(--text-title)]">Добро пожаловать!</h1>
+              <p class="mt-4">Ваше меню скоро будет здесь. Нажмите кнопку ниже, чтобы начать генерацию.</p>
+              <button id="start-generation-btn" class="btn mt-8">Сгенерировать меню</button>
+            </div>
+          `;
+        }
+      }
+      
+      function renderWizardStep() {
+          const wizardContainer = $('#wizard-screen');
+          let content = '';
+          const currentStep = state.wizardStep;
+
+          const progress = `<div class="w-full bg-gray-200 rounded-full h-1.5 mb-6">
+              <div class="bg-[color:var(--accent-primary)] h-1.5 rounded-full" style="width: ${((currentStep + 1) / 5) * 100}%"></div>
+          </div>`;
+
+          const navButtons = (step) => `
+              <div class="flex justify-between items-center mt-8 w-full">
+                  ${step > 0 ? `<button data-wizard-nav="${step - 1}" class="btn-secondary btn-small px-6">Назад</button>` : '<div></div>'}
+                  <button data-wizard-skip class="text-gray-500 text-sm">Пропустить</button>
+                  <button data-wizard-nav="${step + 1}" class="btn btn-small px-6">${step === 4 ? 'Завершить' : 'Далее'}</button>
+              </div>`;
+
+          switch(currentStep) {
+              case 0:
+                  content = `
+                      <h2 class="font-nunito text-2xl font-semibold text-center mb-2">Шаг 1/5: Сколько человек в семье?</h2>
+                      <p class="text-center text-gray-600 mb-6">Это поможет ИИ рассчитать порции и калории правильно.</p>
+                      <label class="font-nunito font-semibold">Количество: ${state.settings.people}</label>
+                      <input type="range" min="1" max="6" value="${state.settings.people}" id="wizard-people-slider" class="w-full h-2 bg-[color:var(--accent-secondary)] rounded-lg appearance-none cursor-pointer accent-[color:var(--accent-primary)] mt-2">
+                      ${navButtons(0)}
+                  `;
+                  break;
+              case 1:
+                   content = `
+                      <h2 class="font-nunito text-2xl font-semibold text-center mb-2">Шаг 2/5: Какие у вас ограничения?</h2>
+                      <p class="text-center text-gray-600 mb-6">Укажите, какие продукты вы не едите.</p>
+                      <div class="grid grid-cols-2 gap-3 text-left">
+                          ${['Без рыбы', 'Без грибов', 'Без молочных', 'Без яиц', 'Без сахара', 'Без глутамата'].map(opt => `
+                              <label class="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-gray-50">
+                                  <input type="checkbox" data-restriction="${opt}" ${state.settings.restrictions.includes(opt) ? 'checked' : ''} class="w-5 h-5 text-[color:var(--accent-success)] bg-gray-100 border-gray-300 rounded focus:ring-[color:var(--accent-success)]">
+                                  <span>${opt}</span>
+                              </label>
+                          `).join('')}
+                      </div>
+                      <input id="wizard-other-restrictions" type="text" placeholder="Другие ограничения (через запятую)" class="input-field mt-4 text-sm" value="${state.settings.otherRestrictions}">
+                      ${navButtons(1)}
+                  `;
+                  break;
+               // ... other steps would follow the same pattern
+               default:
+                    state.view = 'main';
+                    saveState();
+                    render();
+                    return;
+          }
+          wizardContainer.innerHTML = progress + content;
+      }
+
+
+      // --- EVENT LISTENERS ---
+      function attachListeners() {
+        $('#apiKey-form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const keyInput = $('#apiKey-input');
+          const errorP = $('#apiKey-error');
+          const key = keyInput.value.trim();
+          if (!key) return;
+
+          $('#loading-overlay').classList.remove('hidden');
+          errorP.classList.add('hidden');
+          keyInput.classList.remove('shake');
+          
+          const isValid = await Gemini.verifyKey(key);
+          
+          $('#loading-overlay').classList.add('hidden');
+
+          if (isValid) {
+            state.apiKey = key;
+            state.view = 'wizard';
+            saveState();
+            render();
+          } else {
+            errorP.textContent = 'Неверный ключ или нет доступа к Gemini. Проверьте ключ и ваше интернет-соединение (VPN).';
+            errorP.classList.remove('hidden');
+            keyInput.classList.add('shake');
+          }
+        });
+
+        $('#wizard-screen').addEventListener('input', (e) => {
+            const target = e.target;
+            if (target.id === 'wizard-people-slider') {
+                state.settings.people = parseInt(target.value);
+                renderWizardStep(); // Re-render to update label
+            }
+            if(target.id === 'wizard-other-restrictions') {
+                state.settings.otherRestrictions = target.value;
+            }
+        });
+        
+        $('#wizard-screen').addEventListener('change', (e) => {
+            const target = e.target;
+            if (target.dataset.restriction) {
+                const restriction = target.dataset.restriction;
+                if(target.checked) {
+                    state.settings.restrictions.push(restriction);
+                } else {
+                    state.settings.restrictions = state.settings.restrictions.filter(r => r !== restriction);
+                }
+            }
+        });
+
+        $('#wizard-screen').addEventListener('click', (e) => {
+          const target = e.target.closest('button');
+          if (!target) return;
+          
+          if (target.dataset.wizardNav) {
+            state.wizardStep = parseInt(target.dataset.wizardNav);
+            renderWizardStep();
+          } else if (target.dataset.wizardSkip !== undefined) {
+             state.wizardStep++;
+             renderWizardStep();
+          }
+        });
+      }
+
+      // --- INITIALIZATION ---
+      function init() {
+        console.log("App Initializing...");
+        loadState();
+        render();
+        attachListeners();
+      }
+
+      return {
+        init,
+      };
+    })();
+
+    document.addEventListener('DOMContentLoaded', App.init);
+  </script>
 </body>
 </html>
